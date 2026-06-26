@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+@import "./styles/globals.css";
+@import "./styles/animations.css";
+
+@theme {
+  /* 3D Isometric View & Stack Support */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer utilities {
+  .perspective-3d {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+  
+  .isometric-container {
+    transform: rotateX(54deg) rotateY(0deg) rotateZ(-45deg);
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .isometric-container:hover {
+    transform: rotateX(48deg) rotateY(0deg) rotateZ(-38deg) translateY(-8px);
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  /* 3D layers translateZ offsets */
+  .translate-z-base {
+    transform: translateZ(0px);
+  }
+  
+  .translate-z-low {
+    transform: translateZ(12px);
+  }
+  
+  .translate-z-medium {
+    transform: translateZ(32px);
+  }
+  
+  .translate-z-high {
+    transform: translateZ(64px);
+  }
+
+  /* Real 3D thickness shadows using multiple box shadows */
+  .shadow-3d-mint {
+    box-shadow: 0 1px 0 0 #c2d8cf,
+                0 2px 0 0 #abbfb6,
+                0 3px 0 0 #94a69e,
+                0 4px 0 0 #7e8d87,
+                0 8px 16px 0 rgba(17, 76, 90, 0.15);
+  }
+
+  .shadow-3d-forsythia {
+    box-shadow: 0 1px 0 0 #e6b400,
+                0 2px 0 0 #cc9f00,
+                0 3px 0 0 #b38b00,
+                0 4px 0 0 #997700,
+                0 8px 16px 0 rgba(255, 200, 1, 0.25);
+  }
+
+  .shadow-3d-saffron {
+    box-shadow: 0 1px 0 0 #e6892d,
+                0 2px 0 0 #cc7a28,
+                0 3px 0 0 #b36b23,
+                0 4px 0 0 #995c1e,
+                0 8px 16px 0 rgba(255, 153, 50, 0.25);
+  }
+
+  .shadow-3d-nocturnal {
+    box-shadow: 0 1px 0 0 #0e3e4a,
+                0 2px 0 0 #0b313a,
+                0 3px 0 0 #08242b,
+                0 4px 0 0 #05171b,
+                0 12px 24px 0 rgba(17, 76, 90, 0.4);
+  }
+
+  .shadow-3d-oceanic {
+    box-shadow: 0 1px 0 0 #13232c,
+                0 2px 0 0 #0f1c23,
+                0 3px 0 0 #0b141a,
+                0 4px 0 0 #070d11,
+                0 12px 24px 0 rgba(23, 43, 54, 0.5);
+  }
+
+  /* Custom glow classes */
+  .glow-forsythia {
+    box-shadow: 0 0 20px 2px rgba(255, 200, 1, 0.35);
+  }
+  
+  .glow-saffron {
+    box-shadow: 0 0 20px 2px rgba(255, 153, 50, 0.35);
+  }
+
+  .glow-mint {
+    box-shadow: 0 0 20px 2px rgba(217, 232, 226, 0.5);
+  }
+}
+
+/* Base custom font mappings & global utility */
+h1, h2, h3, h4, h5, h6, .font-tech {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace !important;
+}
+
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) translateZ(32px);
+  }
+  50% {
+    transform: translateY(-8px) translateZ(48px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.08);
+  }
+}
+
+.animate-float-layer {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}

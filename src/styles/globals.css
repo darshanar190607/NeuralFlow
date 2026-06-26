@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #114C5A;       /* Nocturnal Expedition */
+  --color-secondary: #FF9932;     /* Deep Saffron */
+  --color-background: #F1F6F4;    /* Arctic Powder */
+  --color-surface: #172B36;       /* Oceanic Noir */
+  --color-text-primary: #172B36;  /* Oceanic Noir */
+  --color-text-secondary: #114C5A;/* Nocturnal Expedition */
+  --color-accent: #FFC801;        /* Forsythia */
+  --color-border: #D9E8E2;        /* Mystic Mint */
+}
+
+/* Explicit overrides when dark mode is enabled */
+.dark {
+  --color-background: #172B36;    /* Oceanic Noir as main background */
+  --color-surface: #114C5A;       /* Nocturnal Expedition as card surface */
+  --color-text-primary: #F1F6F4;  /* Arctic Powder as primary text */
+  --color-text-secondary: #D9E8E2;/* Mystic Mint as secondary text */
+  --color-border: #1a3c45;        /* Custom dark teal border */
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-accent: var(--color-accent);
+  --color-border: var(--color-border);
+
+  /* Semantic helper aliases mapped to physical tokens */
+  --color-arctic: #F1F6F4;
+  --color-mint: #D9E8E2;
+  --color-forsythia: #FFC801;
+  --color-saffron: #FF9932;
+  --color-nocturnal: #114C5A;
+  --color-oceanic: #172B36;
+}
+
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-mono);
+  }
+}

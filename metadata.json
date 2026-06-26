@@ -1,0 +1,6 @@
+{
+  "name": "AI Data Automation Platform",
+  "description": "A premium SaaS landing page for an AI-driven data automation platform featuring a live playground, dynamic pricing engine, bento features, and real-time tab syncing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

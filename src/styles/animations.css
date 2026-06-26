@@ -1,0 +1,105 @@
+/* Keyframes for entrance sequences */
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* Helper Animation classes utilizing transform and opacity only (Hardware Accelerated) */
+.animate-fade-up {
+  animation: fade-up 450ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 450ms ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* Entry orchestration delay tokens */
+.delay-0 {
+  animation-delay: 0ms;
+}
+
+.delay-1 {
+  animation-delay: 100ms;
+}
+
+.delay-2 {
+  animation-delay: 180ms;
+}
+
+.delay-3 {
+  animation-delay: 260ms;
+}
+
+.delay-stagger-1 {
+  animation-delay: 80ms;
+}
+
+.delay-stagger-2 {
+  animation-delay: 160ms;
+}
+
+.delay-stagger-3 {
+  animation-delay: 240ms;
+}
+
+.delay-stagger-4 {
+  animation-delay: 320ms;
+}
+
+/* Interactive element transition presets */
+.transition-interactive {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 180ms; /* Matches the 150ms-200ms hover/toggle target */
+}
+
+.transition-layout {
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-duration: 350ms; /* Matches the 300ms-400ms accordion/reflow target */
+}
+
+/* Pulsing border animation for selected cards */
+@keyframes border-pulse {
+  0%, 100% {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 12px 1px rgba(255, 153, 50, 0.2);
+  }
+  50% {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 20px 4px rgba(255, 200, 1, 0.35);
+  }
+}
+
+.animate-border-pulse {
+  animation: border-pulse 3s infinite ease-in-out;
+}
+
